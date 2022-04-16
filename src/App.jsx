@@ -5,6 +5,7 @@ import ListTodo from './components/listTodo'
 import { useDispatch } from 'react-redux'
 import { postAction } from './store/postSlice'
 import { GetAllPostAction } from './store/postAction'
+import Header from './components/header'
 
 function App() {
   const dispatch = useDispatch()
@@ -15,6 +16,7 @@ function App() {
 
   return (
     <div className="container">
+      <Header/>
       <Form/>
       <ListTodo/>
     </div>

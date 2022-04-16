@@ -1,5 +1,6 @@
 import { useDispatch } from "react-redux"
 import { DeletePostAction } from "../store/postAction"
+import { postAction } from "../store/postSlice"
 
 export default function ItemTodo({id, title, body, thumbnail}) {
     const dispatch = useDispatch()
@@ -8,6 +9,13 @@ export default function ItemTodo({id, title, body, thumbnail}) {
         dispatch(DeletePostAction(id))
     }
 
+    const handleSetEdit = ()=>{
+console.log('hh');
+        dispatch(postAction.setIsEdit({
+            status: true,
+            id: id
+        }))
+    }
    // console.log(thumbnail.url);
     return (
         <tr>
@@ -28,7 +36,7 @@ export default function ItemTodo({id, title, body, thumbnail}) {
                 </button>
 
                 <button className="btn btn-sm text-white mt-2 btn-warning"
-                 onClick={handleDeletePost}>
+                 onClick={handleSetEdit}>
                     Edit
                 </button>        
             </td>

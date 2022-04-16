@@ -23,8 +23,10 @@ const UISlice = createSlice({
             state.message = `${action.payload} post failed.`
             state.status = `danger`
         },
-        processPostEnded(){
+        processPostEnded(state, action){
             state.alert = false
+            state.message = ``
+            state.status = ``
         }
     }
 })
